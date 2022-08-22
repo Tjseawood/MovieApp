@@ -15,36 +15,33 @@ Step 2: JS
 Step eventually: Add HTML Validation -->
 
 
-<form>
- 
-    <p>
-      <label> Movie Id<input type="text" name="movieId"/></label>
-    </p>
-    <p>
+<form id="form">
+ <p> Warning: If you enter movieId and title, then id will be prioritized </p>
+
+   <div>
+    <label for="movie-id"> Movie Id <input type="text" name="movie-id"/></label>
+   </div>
+   <div>
+    <label for="title"> Title <input type="text" name="title"/></label>
+   </div>
+   <div>
+    <label for="year"> Year <input type="text" name="year"/></label>
+   </div>
+   <div>
+    <label for="plot"> Plot <input type="text" name="plot"/></label>
+   </div>
+    <div>
       <label> API Key<input type="text" name="apiKey"/></label>
-    </p>
-
-    <p>
-          <label> Title<input type="text" name="title"/></label>
-        </p>
-     
-     
-    <p>
-          <label>Year<input type="text" name="year"/></label>
-        </p>
-
-    <p>
-          <label>Plot<input type="text" name="plot" /></label>
-        </p>
-     
-     
-         
-     
-    <p>
+    </div>
+    
            <button type="submit">Submit</button>
-        </p>
+      
      
 </form>
+
+<div id="results">
+
+</div>
 
     <script type="module" src="/main.js"></script>
   </body>
