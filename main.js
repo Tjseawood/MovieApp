@@ -4,7 +4,7 @@ console.log(apiKey)
 
 
 //func 1 - get form values
-const getUserInput = () => {
+const getUserInputs = () => {
   const movieId = document.getElementById('movie-id')
   const movieApi = document.getElementById('movieApiKey')
   const movieTitle = document.getElementById('movieTitle')
@@ -12,12 +12,12 @@ const getUserInput = () => {
   const moviePlot = document.getElementById('moviePlot')
   
 }
-console.log(getFormValues)
+console.log(getUserInputs)
 
 //func 2 - Call API with user input for results, take in form values 
 
-async function makeApiCall(userInputs) {
-  const urlToFetch = getUserInput
+async function makeApiCall(getUserInputs) {
+  const urlToFetch = `${movieId},${movieApi},${movieTitle},${moviePlot},${movieYr}`
   const response = await fetch(urlToFetch)
   const apiResults = await response.json()
   return apiResults
@@ -25,16 +25,19 @@ async function makeApiCall(userInputs) {
 
 
 //func 3 - Show API results back to user, take end results and show them 
-const showResults = (results) => {
+const showResultsFromApiCall = (results) => {
   console.log(results)
   //Results in HTML
 }
 
 
 const main = () => {
-  const formValues  = getFormValues()
-  const apiResults =  getResults(formValues)
-  showResults(apiResults)
+  document.getElementById(form).listen(submit, async (event) => {
+    event.preventDefault()
+    const userInputs = getUserInputs()
+    const apiResults = await makeApiCall(userInputs)
+    showResultsFromApiCall(apiResults)
+  })
 }
 
 
