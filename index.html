@@ -14,35 +14,40 @@ Step 1: Collect via form: API KEY, Title or IMDB id, Year, Plot Length from user
 Step 2: JS
 Step eventually: Add HTML Validation -->
 
-    <div class="wrapper">
-      <form action="" method="GET" id="form">
-        <p>
-          Warning: If you enter movieId and title, then id will be prioritized
-        </p>
-
-        <div>
+    <div class="container">
+      <form action="index.html" method="GET" id="form">
+        <h1>Movie Lookup</h1>
+    
+        <div class="field">
           <label for="movie-id">Movie Id</label>
           <input type="text" name="movie-id" id="movie-id"/>
         </div>
-        <div>
+        <div class="field">
           <label for="movieApiKey"> API Key</label>
           <input type="text" name="movieApiKey" id="movieApiKey"/>
         </div>
-        <div>
+        <div class="field">
           <label for="movieTitle"> Title </label>
           <input  type="text" name="movieTitle" id="movieTitle"/>
         </div>
-        <div>
+        <div class="field">
           <label for="movieYear"> Year </label>
-          <input type="text" name="movieYear" id="movieYear"/>
+          <input type="number" name="movieYear" id="movieYear"/>
         </div>
-        <div>
+        <div class="field">
           <label for="moviePlot"> Plot </label>
           <input type="text" name="moviePlot" id="moviePlot"/>
         </div>
-
-        <button type="submit">Submit</button>
+          <div class="field">
+            <button type="submit">Submit</button>
+             <button type="reset">Reset</button>
+          </div>
+         
       </form>
+    </div>
+
+    <div>
+      <p>API KEY:'adce0922'</p>
     </div>
 
     <div id="results"></div>
