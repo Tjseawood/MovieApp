@@ -14,7 +14,7 @@ const getUserInputs = () => {
 }
 console.log(getUserInputs)
 
-//func 2 - Call API with user input for results, take in form values 
+// func 2 - Call API with user input for results, take in form values 
 
 async function makeApiCall(getUserInputs) {
   const urlToFetch = `${movieId},${movieApi},${movieTitle},${moviePlot},${movieYr}`
@@ -23,13 +23,11 @@ async function makeApiCall(getUserInputs) {
   return apiResults
 }
 
-
 //func 3 - Show API results back to user, take end results and show them 
 const showResultsFromApiCall = (results) => {
   console.log(results)
   //Results in HTML
 }
-
 
 const main = () => {
   document.getElementById(form).listen(submit, async (event) => {
