@@ -9,31 +9,15 @@
   <body>
     <div id="app"></div>
 
-    <!--TODO: 
-Step 1: Collect via form: API KEY, Title or IMDB id, Year, Plot Length from user
-Step 2: JS
-Step eventually: Add HTML Validation -->
-
     <div class="container">
-      <form action="" id="searchForm"> <!-- if we have backend server, use url in the action-->
+      <form action="" id="searchForm">
         <h1>Movie Lookup</h1>
-    
-        <!-- <div class="field">
-          <label for="movie-id">Movie Id</label>
-          <input type="text" name="movie-id" id="movie-id"/>
-        </div>
-        <div class="field">
-          <label for="movieApiKey"> API Key</label>
-          <input type="text" name="movieApiKey" id="movieApiKey"/>
-        </div> -->
+       
         <div class="field">
           <label for="movieTitle"> Title </label>
           <input  type="text" name="movieTitle" id="movieTitle"/>
         </div>
-        <!-- <div class="field">
-          <label for="movieYear"> Year </label>
-          <input type="number" name="movieYear" id="movieYear"/>
-        </div> -->
+
         <div class="field">
           <label for="moviePlot">Select Plot length:</label>
           <select name="moviePlot" id="moviePlot">
