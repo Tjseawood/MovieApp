@@ -9,16 +9,16 @@ const getUserInputs = () => {
   // const movieApi = document.getElementById('movieApiKey')
   const movieTitle = document.getElementById('movieTitle').value 
   // const movieYr = document.getElementById('movieYear')
-  // const moviePlot = document.getElementById('moviePlot')
+  const moviePlot = document.getElementById('moviePlot').value
   return {
     'Title': movieTitle,
     'Plot': moviePlot,
-
-
   }
 }
 // console.log(getUserInputs())
-const generateUrl = 
+const generateUrl = () => {
+ return 'http://www.omdbapi.com/?i=tt3896198&apikey=YOURKEYHERE'
+}
 // func 2 - Call API with user input for results, take in form values 
 //create app url for userinput vaules
 async function makeApiCall(x) {
@@ -39,11 +39,11 @@ const submitForm = async (event) => {
   const userInputs = getUserInputs()
   console.log(userInputs)
   const apiResults = await makeApiCall(userInputs)
-  // showResultsFromApiCall(apiResults)
+  showResultsFromApiCall(apiResults)
 }
 
 const main = () => {
-  document.getElementById('form').addEventListener('submit', submitForm)
+  document.getElementById('searchForm').addEventListener('submit', submitForm)
 }
 
 
