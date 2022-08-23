@@ -1,23 +1,28 @@
 import './style.css'
 import { apiKey } from './secrets.js'
-console.log(apiKey)
+// console.log(apiKey)
 
 
 //func 1 - get form values
 const getUserInputs = () => {
-  const movieId = document.getElementById('movie-id')
-  const movieApi = document.getElementById('movieApiKey')
-  const movieTitle = document.getElementById('movieTitle')
-  const movieYr = document.getElementById('movieYear')
-  const moviePlot = document.getElementById('moviePlot')
-  
+  // const movieId = document.getElementById('movie-id')
+  // const movieApi = document.getElementById('movieApiKey')
+  const movieTitle = document.getElementById('movieTitle').value 
+  // const movieYr = document.getElementById('movieYear')
+  // const moviePlot = document.getElementById('moviePlot')
+  return {
+    'Title': movieTitle,
+    'Plot': moviePlot,
+
+
+  }
 }
-console.log(getUserInputs)
-
+// console.log(getUserInputs())
+const generateUrl = 
 // func 2 - Call API with user input for results, take in form values 
-
-async function makeApiCall(getUserInputs) {
-  const urlToFetch = `${movieId},${movieApi},${movieTitle},${moviePlot},${movieYr}`
+//create app url for userinput vaules
+async function makeApiCall(x) {
+  const urlToFetch = generateUrl(x)
   const response = await fetch(urlToFetch)
   const apiResults = await response.json()
   return apiResults
@@ -29,13 +34,16 @@ const showResultsFromApiCall = (results) => {
   //Results in HTML
 }
 
+const submitForm = async (event) => {
+  event.preventDefault() //override action in standard html form
+  const userInputs = getUserInputs()
+  console.log(userInputs)
+  const apiResults = await makeApiCall(userInputs)
+  // showResultsFromApiCall(apiResults)
+}
+
 const main = () => {
-  document.getElementById(form).listen(submit, async (event) => {
-    event.preventDefault()
-    const userInputs = getUserInputs()
-    const apiResults = await makeApiCall(userInputs)
-    showResultsFromApiCall(apiResults)
-  })
+  document.getElementById('form').addEventListener('submit', submitForm)
 }
 
 
