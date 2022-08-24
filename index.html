@@ -5,35 +5,73 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <!--font awesome icons cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <div id="app"></div>
 
-    <div class="container">
-      <form action="" id="searchForm">
-        <h1>Movie Lookup</h1>
-       
-        <div class="field">
-          <label for="movieTitle"> Title </label>
-          <input  type="text" name="movieTitle" id="movieTitle"/>
-        </div>
-
-        <div class="field">
-          <label for="moviePlot">Select Plot length:</label>
-          <select name="moviePlot" id="moviePlot">
-            <option value="short">Short</option>
-            <option value="long">Long</option>
-          </select>
-        </div>
-          <div class="field">
-            <button type="submit">Submit</button>
-             <!-- <button type="reset">Reset</button> -->
+    <div class="wrapper">
+      <!--Logo-->
+        <div class="logo">
+          <div class="container">
+            <h1>Ty's Movie<span>Corn</span></h1>
           </div>
-         
-      </form>
+        </div>
+      <!--end of logo-->
+
+        <!--search form-->
+        <div class="search-container">
+          <div class="search-element">
+              <form action="" id="searchForm">
+                    <div class="field">
+                      <label for="movieTitle">Movie Title</label>
+                      <input  type="text" class="form-control" name="movieTitle" id="movieTitle" placeholder="Search Movie Title..."/>
+                    </div>
+
+                    <div class="field">
+                      <label for="moviePlot">Select Plot length:</label>
+                      <select name="moviePlot" id="moviePlot">
+                        <option value="short">Short</option>
+                        <option value="long">Long</option>
+                      </select>
+                    </div>
+                      <div class="field">
+                        <button type="submit">Search</button>
+                      </div>
+                  </form>
+          </div>
+        </div>
     </div>
 
-    <div id="showMovieResults"></div>
+    <!--------------------------------Results container---------------------------------->
+<div id="showMovieResults"></div>
+
+    <!---<div class="container">
+      <div class="result-container">
+        <div class="result-grid" id="result-grid">
+        
+          <div class="movie-poster">
+            <img src="/medium-cover.jpg" alt="movie-poster">
+          </div>
+          <div class="movie-info">
+            <h3 class = "movie-title">Guardians of the Galaxy Vol. 2</h3>
+            <ul class = "movie-misc-info">
+                <li class = "year">Year: 2017</li>
+                <li class = "rated">Ratings: PG-13</li>
+                <li class = "released">Released: 05 May 2017</li>
+            </ul>
+            <p class = "genre"><b>Genre:</b> Action, Adventure, Comedy</p>
+            <p class = "writer"><b>Writer:</b> James Gunn, Don Abnett, Andy Lanning</p>
+            <p class = "actors"><b>Actors: </b>Chris Pratt, Zoe Saldana, Dave Bautista</p>
+            <p class = "plot"><b>Plot:</b> The Guardians struggle to keep together as a team while dealing with their personal family issues, notably Star-Lord's ecounter with his father the ambitious celestial being Ego.</p>
+            <p class = "language"><b>Language:</b> English</p>
+            <p class = "awards"><b><i class = "fas fa-award"></i></b> Nominated for 1 Oscar</p>
+          </div>
+        </div>
+      </div>
+    </div>-->
+   
+    <!--end of result container---------------------------------------------------------->
 
     <script type="module" src="/main.js"></script>
   </body>

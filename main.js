@@ -11,27 +11,21 @@ const loadMovies = async (event) => {
   // console.log(urlToFetch)
   const response = await fetch(urlToFetch);
   const loadMovies = await response.json();
+    // console.log(loadMovies)
+  if (loadMovies.Response == "True"){
+   console.log(loadMovies.Search)
+  }
 
-  console.log(loadMovies.Search)
-
-  // const t = document.createElement('h1')
-  // t.textContent = apiResults['Title'];
+  const t = document.createElement('h3')
+  t.textContent = loadMovies['Title'];
 
   // const p = document.createElement('p')
-  // p.textContent = apiResults['Plot']
+  // p.textContent = loadMovies['Plot']
 
-  // const ps = document.createElement('img')
-  // ps.textContent = apiResults['Poster']
+  const showMovieResults = document.getElementById('showMovieResults')
 
-  // const r = document.createElement('p')
-  // r.textContent = apiResults['Rated']
-
-  // const showMovieResults = document.getElementById('showMovieResults')
-
-  // showMovieResults.appendChild(t)
+  showMovieResults.appendChild(t)
   // showMovieResults.appendChild(p)
-  // showMovieResults.appendChild(r)
-  // showMovieResults.appendChild(ps)
   
 }
 
