@@ -4,54 +4,60 @@ import { doc } from 'prettier'
 // console.log(apiKey)
 
 const loadMovies = async (event) => {
-  //override action in standard html form
+  //override action method in standard html form
   event.preventDefault() 
 
   // Pull userInput values from form
-  const movieTitle = document.getElementById('movieTitle').value 
-  const moviePlot = document.getElementById('moviePlot').value
+  const movieApi = document.getElementById('movieApi').value.trim();
+  const movieTitle = document.getElementById('movieTitle').value.trim();
+  const moviePlot = document.getElementById('moviePlot').value.trim();
   // console.log(movieTitle, moviePlot)
 
   //Make the call to the API with user inputs
-  const urlToFetch = `https://www.omdbapi.com/?t=${movieTitle}&plot=${moviePlot}&apikey=${apiKey}`
+  const urlToFetch = `https://www.omdbapi.com/?t=${movieTitle}&p=${moviePlot}&apikey=${movieApi}`
   // console.log(urlToFetch)
   const response = await fetch(urlToFetch);
   const apiResults = await response.json();
     // console.log(loadMovies)
   
-  //ensures that we getting search results back
-  if (apiResults.Response == "True"){
-   console.log(apiResults.Search)
-  }
+  //ensures that we getting just values back
+  if (apiResults.Response == "True") displayMovieDetails(apiResults.Search);
 
   //Append Results to HTML
-  const title = document.createElement('h1')
-  title.textContent = apiResults['Title'];
+  function displayMovieDetails() {
+    const parent = document.getElementById('movieResults')
+    
+    const title = document.createElement('div')
+    title.textContent = `Title: ${apiResults['Title']}`;
+    parent.appendChild(title)
+    
+    const movieyr = document.createElement('div')
+    movieyr.textContent = `Year: ${apiResults['Year']}`;
+    parent.appendChild(movieyr)
 
-  const movieyr = document.createElement('div')
-  movieyr.textContent = apiResults['Year']
+    const movieId = document.createElement('div')
+    movieId.textContent = `imdbID: ${apiResults['imdbID']}`;
+    parent.appendChild(movieId)
 
-  const plot = document.createElement('p')
-  plot.textContent = apiResults['Plot']
+    const plot = document.createElement('div')
+    plot.textContent = `Plot: ${apiResults['Plot']}`;
+    parent.appendChild(plot)
+   
+    const rating = document.createElement('div')
+    rating.textContent = `Rated: ${apiResults['Rated']}`;
+    parent.appendChild(rating)
+    
+    const releaseDate = document.createElement('div')
+    releaseDate.textContent = `Released: ${apiResults['Released']}`;
+    parent.appendChild(releaseDate)
+    
+    const poster = document.createElement('img')
+    poster.src = apiResults['Poster']
+    parent.appendChild(poster);
+  }
+  
 
-  const poster = document.createElement('img')
-  poster.src = apiResults['Poster']
-
-  const rating = document.createElement('p')
-  rating.textContent= apiResults['Rated']
-
-  const releaseDate = document.createElement('div')
-  releaseDate.textContent = apiResults['Released']
-
-  const parent = document.getElementById('movieResults')
-  parent.appendChild(title)
-  parent.appendChild(movieyr)
-  parent.appendChild(rating)
-  parent.appendChild(releaseDate)
-  parent.appendChild(plot)
-  parent.appendChild(poster)
-
-}
+} 
 
 const main = async () => {
   const searchFormElement = document.getElementById('searchForm')
