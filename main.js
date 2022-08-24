@@ -1,32 +1,56 @@
 import './style.css'
 import { apiKey } from './secrets.js'
+import { doc } from 'prettier'
 // console.log(apiKey)
 
 const loadMovies = async (event) => {
-  event.preventDefault() //override action in standard html form
+  //override action in standard html form
+  event.preventDefault() 
+
+  // Pull userInput values from form
   const movieTitle = document.getElementById('movieTitle').value 
   const moviePlot = document.getElementById('moviePlot').value
   // console.log(movieTitle, moviePlot)
-  const urlToFetch = `https://www.omdbapi.com/?s=${movieTitle}&plot=${moviePlot}&apikey=${apiKey}`
+
+  //Make the call to the API with user inputs
+  const urlToFetch = `https://www.omdbapi.com/?t=${movieTitle}&plot=${moviePlot}&apikey=${apiKey}`
   // console.log(urlToFetch)
   const response = await fetch(urlToFetch);
-  const loadMovies = await response.json();
+  const apiResults = await response.json();
     // console.log(loadMovies)
-  if (loadMovies.Response == "True"){
-   console.log(loadMovies.Search)
+  
+  //ensures that we getting search results back
+  if (apiResults.Response == "True"){
+   console.log(apiResults.Search)
   }
 
-  const t = document.createElement('h3')
-  t.textContent = loadMovies['Title'];
+  //Append Results to HTML
+  const title = document.createElement('h1')
+  title.textContent = apiResults['Title'];
 
-  // const p = document.createElement('p')
-  // p.textContent = loadMovies['Plot']
+  const movieyr = document.createElement('div')
+  movieyr.textContent = apiResults['Year']
 
-  const showMovieResults = document.getElementById('showMovieResults')
+  const plot = document.createElement('p')
+  plot.textContent = apiResults['Plot']
 
-  showMovieResults.appendChild(t)
-  // showMovieResults.appendChild(p)
-  
+  const poster = document.createElement('img')
+  poster.src = apiResults['Poster']
+
+  const rating = document.createElement('p')
+  rating.textContent= apiResults['Rated']
+
+  const releaseDate = document.createElement('div')
+  releaseDate.textContent = apiResults['Released']
+
+  const parent = document.getElementById('movieResults')
+  parent.appendChild(title)
+  parent.appendChild(movieyr)
+  parent.appendChild(rating)
+  parent.appendChild(releaseDate)
+  parent.appendChild(plot)
+  parent.appendChild(poster)
+
 }
 
 const main = async () => {
