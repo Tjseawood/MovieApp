@@ -56,25 +56,22 @@ a{
   justify-content: center;
 }
 
-.field{
+.form-field{
   font-weight: 700;
   display: flex;
   flex-direction: column;
 }
 
-.submit-button{
-  background-color: var(--light-color);
-  border: none;
-  padding: 0 0.2rem;
-  border-radius: 4px;
-  display: inline-block;
-}
 .form-control{
   padding: 2px;
 
 }
 .searchForm{
   color: white;
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 10px;
+  
   margin: auto;
   display: flex;
   justify-content: center;
@@ -84,6 +81,59 @@ a{
   line-height: 1.5; 
   align-self: center;
 }
+
+.submit-button{
+  position: relative;
+  margin-top: 1.2rem;
+  background-color: var(--dark-color);
+  border-radius: 4em;
+  font-size: 16px;
+  color: white;
+  padding: 10px;
+  cursor:pointer;
+  user-select:none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s; /* Safari */
+}
+
+.submit-button:hover {
+  transition-duration: 0.1s;
+  color: var(--blue-color);
+  background-color: var(--light-color);
+}
+
+
+.submit-button:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  box-shadow: 0 0 10px 40px white;
+}
+
+.submit-button:active:after {
+  box-shadow: 0 0 0 0 white;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top:0;
+  opacity: 1;
+  transition: 0s;
+}
+
+.submit-button:active {
+  top: 1px;
+}
+
 
 .note{
   color: #fff;

@@ -31,17 +31,17 @@
         <div class="search-container">
           <div class="search-element">
             <form action="" class="searchForm" id="searchForm">
-              <div class="field">
+              <div class="form-field">
                 <label for="movieApi">Movie API</label>
                 <input
                   type="text"
                   class="form-control"
                   name="movieApi"
                   id="movieApi"
-                  placeholder=" adec4839"
+                  placeholder='Enter API Key: "adec4839"'
                 />
               </div>
-              <div class="field">
+              <div class="form-field">
                 <label for="movieTitle">Movie Title</label>
                 <input
                   type="text"
@@ -49,17 +49,18 @@
                   name="movieTitle"
                   id="movieTitle"
                   placeholder=" The Avengers"
+                  required
                 />
               </div>
-              <div class="field">
+              <div class="form-field">
                 <label for="moviePlot">Plot length:</label>
-                <select name="moviePlot" id="moviePlot">
+                <select name="moviePlot" id="moviePlot" required>
                   <option value="short">Short</option>
                   <option value="long">Long</option>
                 </select>
               </div>
-              <div class="field">
-                <button type="submit" class="submit-button" id="button">Search</button>
+              <div class="form-field">
+                <button type="submit" value= "Search" class="submit-button" id="button">Search</button>
               </div>
             </form>
             <div class="note">

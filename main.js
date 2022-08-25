@@ -14,7 +14,7 @@ const loadMovies = async (event) => {
   // console.log(movieTitle, moviePlot)
 
   //Make the call to the API with user inputs
-  const urlToFetch = `https://www.omdbapi.com/?t=${movieTitle}&p=${moviePlot}&apikey=${apiKey}`
+  const urlToFetch = `https://www.omdbapi.com/?t=${movieTitle}&p=${moviePlot}&apikey=${movieApi}`
   // console.log(urlToFetch)
   const response = await fetch(urlToFetch);
   const apiResults = await response.json();
@@ -23,9 +23,17 @@ const loadMovies = async (event) => {
   //ensures that we getting just values back
   if (apiResults.Response == "True") displayMovieDetails(apiResults.Search);
 
+  const inputs = document.querySelectorAll('#movieApi, #movieTitle, #moviePlot')
+    inputs.forEach(input => {
+      input.value = '';
+    });
+  
   //Append Results to HTML
   function displayMovieDetails() {
     const parent = document.getElementById('movieResults')
+    
+    parent.innerHTML = '';
+
 
     const poster = document.createElement('img')
     poster.src = apiResults['Poster']
@@ -72,21 +80,18 @@ const loadMovies = async (event) => {
     plot.className = "plot"
     parent.appendChild(plot)
    
-    const btn = document.getElementById("button")
-    btn.addEventListener('click', function handleClick(event) {
-      event.preventDefault()
-      const inputs = document.querySelectorAll('#movieApi, #movieTitle, #moviePlot')
-      inputs.forEach(input => {
-        input.value = '';
-      });
-    });
-   
   }
+
 } 
 
 const main = async () => {
   const searchFormElement = document.getElementById('searchForm')
-    searchFormElement.addEventListener('submit', loadMovies)
-}
+  searchFormElement.addEventListener('submit', loadMovies)
 
+  document.getElementById('searchForm').addEventListener('submit', loadMovies)
+}
+ 
 main()
+
+
+
