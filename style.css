@@ -20,7 +20,8 @@ body{
 
 a{
   padding:4px;
-  text-decoration: underline;
+  text-decoration: none;
+  color: var(--dark-color)
 }
 .wrapper{
   min-height: 100vh;
@@ -32,11 +33,10 @@ a{
   padding: 0 1rem;
 }
 
-
 /************LOGO STYLING**********/
 .logo{
   padding: 1rem 0;
-  border-bottom: 1px solid var(--light-dark-color);
+  border-bottom: 1px solid var(--light-color);
 }
 .logo h1{
   font-size: 2rem;
@@ -55,6 +55,24 @@ a{
   display: flex;
   justify-content: center;
 }
+
+.field{
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-button{
+  background-color: var(--light-color);
+  border: none;
+  padding: 0 0.2rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+.form-control{
+  padding: 2px;
+
+}
 .searchForm{
   color: white;
   margin: auto;
@@ -63,7 +81,8 @@ a{
 }
 .searchForm *{
   box-sizing: border-box;
-  line-height: 1.5;
+  line-height: 1.5; 
+  align-self: center;
 }
 
 .note{
@@ -75,16 +94,55 @@ a{
 /********MOVIE RESULTS STYLING**************/
 
 .movie-results {
-  padding: 3rem;
+  padding: 3rem 0;
   text-align: center;
   color:#fff;
   padding-top: 3rem;
   
 }
 .movie-title{
+  text-transform: uppercase;
+  padding-top:0.67rem;
   font-size: 2rem;
   color: var(--blue-color);
+  font-weight: 700;
+}
 
+.movie-main-details{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem;
+
+}
+#year {
+  font-weight: 500;
+}
+
+#rated{
+  background-color: var(--blue-color);
+  display: inline-block;
+  margin: 0 0.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.released{
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+#actors{
+  background-color: var(--light-dark-color);
+  display: inline-block;
+  border-radius: 4px;
+  padding: 0.5rem;
+
+}
+.plot{
+  max-width: 400px;
+  margin: 1rem auto;
 }
 .poster-img{
   max-width: 300px;
