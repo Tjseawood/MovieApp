@@ -9,27 +9,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    
-    <div class="wrapper">
-      <!--------------------------START OF LOGO------------------------>
+
+  <div class="wrapper">
+      <!----------------START OF LOGO------------------------>
         <div class="logo">
           <div class="container">
             <h1>Ty's Movie<span>Corn</span></h1>
           </div>
         </div>
-    <!---------------------------END OF LOGO---------------------------->
+    <!------------------END OF LOGO---------------------------->
 
-    <!--------------------------START OF SEARCH FORM------------------------------------->
+    <!-----------START OF SEARCH FORM--------------------->
         <div class="search-container">
           <div class="search-element">
-              <form action="" id="searchForm">
+              <form action="" class="searchForm" id="searchForm">
                     <div class="field">
                       <label for="movieApi">Movie API</label>
-                      <input type="text" class="form-control" name="movieApi" id="movieApi" placeholder="adec4839"/>
+                      <input type="text" class="form-control" name="movieApi" id="movieApi" placeholder=" adec4839"/>
                     </div>
                     <div class="field">
                       <label for="movieTitle">Movie Title</label>
-                      <input type="text" class="form-control" name="movieTitle" id="movieTitle" placeholder="The Avengers"/>
+                      <input type="text" class="form-control" name="movieTitle" id="movieTitle" placeholder=" The Avengers"/>
                     </div>
                     <div class="field">
                       <label for="moviePlot">Select Plot length:</label>
@@ -41,16 +41,19 @@
                       <div class="field">
                         <button type="submit">Search</button>
                       </div>
-                  </form>
-                  <p>Register for a key at <a href="https://www.omdbapi.com/apikey.aspx" target="_blank">omdbapi.com</a></p>
+                    
+              </form>
+              <div class="note">
+                 <p><em>Register for a key at<a href="https://www.omdbapi.com/apikey.aspx" target="_blank">omdbapi.com</a></em> </p>
+              </div>
           </div>
         </div>
-    </div>
-    <!--------------------------------END OF FORM---------------------------------------->
+   
+    <!-------------END OF FORM------------------>
 
-    <!--------------------------------START OF RESULTS---------------------------------->
-    <div id="movieResults"></div>
-
+    <!-------------START OF RESULTS----------------->
+    <div class="movie-results" id="movieResults"></div>
+ </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

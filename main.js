@@ -14,7 +14,7 @@ const loadMovies = async (event) => {
   // console.log(movieTitle, moviePlot)
 
   //Make the call to the API with user inputs
-  const urlToFetch = `https://www.omdbapi.com/?t=${movieTitle}&p=${moviePlot}&apikey=${movieApi}`
+  const urlToFetch = `https://www.omdbapi.com/?t=${movieTitle}&p=${moviePlot}&apikey=${apiKey}`
   // console.log(urlToFetch)
   const response = await fetch(urlToFetch);
   const apiResults = await response.json();
@@ -28,35 +28,40 @@ const loadMovies = async (event) => {
     const parent = document.getElementById('movieResults')
     
     const title = document.createElement('div')
-    title.textContent = `Title: ${apiResults['Title']}`;
+    title.textContent = apiResults['Title'];
+    title.className = "movie-title"
     parent.appendChild(title)
     
-    const movieyr = document.createElement('div')
+    const movieyr = document.createElement('p')
     movieyr.textContent = `Year: ${apiResults['Year']}`;
+    movieyr.className = "year"
     parent.appendChild(movieyr)
 
     const movieId = document.createElement('div')
     movieId.textContent = `imdbID: ${apiResults['imdbID']}`;
+    movieId.className = "movie-id"
     parent.appendChild(movieId)
 
     const plot = document.createElement('div')
     plot.textContent = `Plot: ${apiResults['Plot']}`;
+    plot.className = "plot"
     parent.appendChild(plot)
    
     const rating = document.createElement('div')
     rating.textContent = `Rated: ${apiResults['Rated']}`;
+    rating.className = "rated"
     parent.appendChild(rating)
     
     const releaseDate = document.createElement('div')
     releaseDate.textContent = `Released: ${apiResults['Released']}`;
+    releaseDate.className = "released"
     parent.appendChild(releaseDate)
     
     const poster = document.createElement('img')
     poster.src = apiResults['Poster']
+    poster.className = "poster-img"
     parent.appendChild(poster);
   }
-  
-
 } 
 
 const main = async () => {

@@ -5,6 +5,7 @@
   --dark-color: #171717;
   --light-dark-color: #292929;
   --blue-color: rgb(15, 109, 168);
+  --light-color: #fff;
 }
 
 *{
@@ -18,5 +19,77 @@ body{
 }
 
 a{
+  padding:4px;
   text-decoration: underline;
 }
+.wrapper{
+  min-height: 100vh;
+  background-color: var(--dark-color);
+}
+.wrapper .container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+
+/************LOGO STYLING**********/
+.logo{
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--light-dark-color);
+}
+.logo h1{
+  font-size: 2rem;
+  color:var(--light-color);
+  font-weight: bold;
+}
+.logo h1 span{
+ color: var(--blue-color);
+}
+
+/***********FORM STYLING**********/
+.search-container{
+  background-color:var(--blue-color);
+  height: 180px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.searchForm{
+  color: white;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+.searchForm *{
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.note{
+  color: #fff;
+  font-size: 12px;
+  padding: 5px;
+}
+
+/********MOVIE RESULTS STYLING**************/
+
+.movie-results {
+  padding: 3rem;
+  text-align: center;
+  color:#fff;
+  padding-top: 3rem;
+  
+}
+.movie-title{
+  font-size: 2rem;
+  color: var(--blue-color);
+
+}
+.poster-img{
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+  border: 4px solid #fff;
+}
+
