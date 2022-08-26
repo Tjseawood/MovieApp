@@ -4,13 +4,19 @@
         "commonjs": true,
         "es2021": true
     },
-    "extends": ["airbnb-base", "esling:recommended", "prettier"],
+    "extends": ["airbnb-base", "eslint-config-prettier"],
     "overrides": [
     ],
+    "parser": "@babel/eslint-parser",
     "parserOptions": {
+        "requireConfigFile": false,
         "ecmaVersion": "latest"
     },
+    "plugins": [
+        "eslint-config-prettier"
+    ],
     "rules": {
-        
+        "prettier/prettier": "error",
+        "no-param-reassign": "off"
     }
 }

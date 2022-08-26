@@ -1,4 +1,9 @@
 class comment extends HTMLElement{
-    connectedCallBack()
-    
+    connectedCallBack() {
+        this.innerHTML = ``;
+    }
 }
+
+
+
+customElements.define('my-comment', Mycomponent)
