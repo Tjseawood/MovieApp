@@ -1,5 +1,6 @@
-import '/style.css'
-// console.log(apiKey)
+
+import '/style.css';
+
 
 const loadMovies = async (event) => {
   // override action method in standard html form

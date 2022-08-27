@@ -12,82 +12,37 @@
       integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    />
+    /> 
+    <script defer type="module" src="/js/main.js"></script>
+    <script defer type="module" src="/js/components.js/logo.js"></script>
+    <script defer type="module" src="/js/components.js/comment.js"></script>
+    <script defer type="module" src="/js/searchMovie.js"></script>
   </head>
   <body>
     <div class="wrapper">
       <header>
-        <!----------------START OF LOGO------------------------>
-       
-        <!------------------END OF LOGO---------------------------->
+    <!----------------START OF LOGO----------------------->
+         <logo-></logo->
+    <!----------------END OF LOGO------------------------->
       </header>
-    <logo-></logo->
-    <section>
-      
     
-        <!-----------START OF SEARCH FORM--------------------->
-        <div class="search-container">
-          <div class="search-element">
-            <form action="" class="searchForm" id="searchForm">
-              <div class="form-field">
-                <label for="movieApi">Movie API</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="movieApi"
-                  id="movieApi"
-                  placeholder='Enter API Key: "adec4839"'
-                />
-              </div>
-              <div class="form-field">
-                <label for="movieTitle">Movie Title</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="movieTitle"
-                  id="movieTitle"
-                  placeholder=" The Avengers"
-                  required
-                />
-              </div>
-              <div class="form-field">
-                <label for="moviePlot">Plot length:</label>
-                <select name="moviePlot" id="moviePlot" required>
-                  <option value="short">Short</option>
-                  <option value="long">Long</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <button type="submit" value= "Search" class="submit-button" id="button">Search</button>
-              </div>
-            </form>
-            <div class="note">
-              <p>
-                <em
-                  >Register for a key at<a
-                    href="https://www.omdbapi.com/apikey.aspx"
-                    target="_blank"
-                    >omdbapi.com</a
-                  ></em
-                >
-              </p>
-            </div>
-          </div>
-        </div>
 
+    <!-----------START OF SEARCH FORM--------------------->
+      <section class="search-container">
+          <movie-></movie->
+       
         <!-------------END OF FORM------------------>
       </section>
-
+      <!----------------START OF COMMENTS------------------->
+      <section class="comment">
+        <comment- name ="Tyler" email="fakeemail@gmail.com" contents="This is awesome"></comment->
+      </section>
       
-
-      <!-------------START OF RESULTS----------------->
-      <div class="movie-results" id="movieResults"></div>
+      
+    <!-------------START OF RESULTS----------------------->
+      <section class="movie-results" >
+       <div id="movieResults"></div>
+      </section>
     </div>
-
-    <comments-></comments->
-    
-    <script type="module" src="/js/main.js"></script>
-    <script type="module" src="/components.js/favorites.js"></script>
-    <script type="module" src="components.js/Logo.js"></script>
   </body>
 </html>

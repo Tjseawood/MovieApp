@@ -34,7 +34,7 @@ a{
 }
 
 /************LOGO STYLING**********/
-.logo{
+/* .logo{
   padding: 1rem 0;
   border-bottom: 1px solid var(--light-color);
 }
@@ -45,7 +45,7 @@ a{
 }
 .logo h1 span{
  color: var(--blue-color);
-}
+} */
 
 /***********FORM STYLING**********/
 .search-container{
