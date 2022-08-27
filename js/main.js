@@ -1,4 +1,4 @@
-import './style.css'
+import '/style.css'
 // console.log(apiKey)
 
 const loadMovies = async (event) => {
@@ -48,14 +48,14 @@ const loadMovies = async (event) => {
     const movieId = document.createElement('div')
     movieId.textContent = `imdbID: ${apiResults.imdbID}`;
     movieId.className = "movie-main-details"
-    movieId.id ="movie-id"
+    movieId.id = "movie-id"
     parent.appendChild(movieId)
 
     const movieyr = document.createElement('div')
     movieyr.textContent = `Year: ${apiResults.Year}`;
     movieyr.className = "movie-main-details"
-    movieyr.id ="year"
-    parent.appendChild(movieyr)  
+    movieyr.id = "year"
+    parent.appendChild(movieyr)
 
     const rating = document.createElement('div')
     rating.textContent = `Rated: ${apiResults.Rated}`;
@@ -66,7 +66,7 @@ const loadMovies = async (event) => {
     const releaseDate = document.createElement('div')
     releaseDate.textContent = `Released: ${apiResults.Released}`;
     releaseDate.className = "movie-main-details"
-    releaseDate.id ="released"
+    releaseDate.id = "released"
     parent.appendChild(releaseDate)
 
     const actors = document.createElement('div')
@@ -81,7 +81,6 @@ const loadMovies = async (event) => {
     parent.appendChild(plot)
    
   }
-
 } 
 
 const main = async () => {
