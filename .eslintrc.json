@@ -10,7 +10,11 @@
     "parser": "@babel/eslint-parser",
     "parserOptions": {
         "requireConfigFile": false,
-        "ecmaVersion": "latest"
+        "ecmaVersion": "latest",
+        "babelOptions": {
+            "babelrc": false,
+            "configFile": false
+            }
     },
     "plugins": [
         "eslint-config-prettier"

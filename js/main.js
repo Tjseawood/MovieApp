@@ -1,6 +1,4 @@
-
 import '/style.css';
-
 
 const loadMovies = async (event) => {
   // override action method in standard html form
@@ -34,7 +32,6 @@ const loadMovies = async (event) => {
     const parent = document.getElementById('movieResults')
     
     parent.innerHTML = '';
-
 
     const poster = document.createElement('img')
     poster.src = apiResults.Poster
@@ -83,6 +80,7 @@ const loadMovies = async (event) => {
    
   }
 } 
+
 
 const main = async () => {
   const searchFormElement = document.getElementById('searchForm')
