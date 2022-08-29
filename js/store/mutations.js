@@ -3,8 +3,8 @@ export default {
       state.comments.push(payload);
       return state;
   },
-    clearItem(state, payload) {
-      state.items.splice(payload.index, 1);
+    clearComment(state, payload) {
+      state.comments.splice(payload.index, 1);
       
     return state;
   }

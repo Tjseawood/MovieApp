@@ -15,11 +15,11 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   const db = await openDB('comment-store', 1);
   const comments = ((await db.getAll('comments')) || {});
-  for (let i = 0; i < comments.length; i++){
-    Store.dispatch('addComment', comments);
+  for (let i = 0; i < comments.length; i++) {
+    Store.dispatch('addComment', comments[i]);
   }
   db.close();
-})
+});
 
 
 const formElement = document.querySelector('.comment-form');
@@ -36,11 +36,10 @@ formElement.addEventListener('submit', async (evt) => {
   if (name.length && email.length && contents.length) {
     let comment = {name: name, email: email, contents: contents}
     Store.dispatch('addComment', comment);
-    // const db = await openDB('comment-store', 1)
     
-    // await db.put('comments', comment);
-    
-    // db.close();
+    const db = await openDB('comment-store', 1);
+    await db.put('comments', comment);
+    db.close();
     
     commentElement.value = '';
     commentElement.focus();

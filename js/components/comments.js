@@ -20,8 +20,14 @@ export default class Comment extends Component {
       ${store.state.comments.map(comment => {
         return `
         <comment- name='${comment.name}' email='${comment.email}' contents='${comment.contents}'></comment->
+        <button>Delete Comment</button>
         `;
       }).join('')}
     </div>`;
+    this.element.querySelectorAll('button').forEach((button, index) => {
+      button.addEventListener('click', () => {
+        store.dispatch('clearComment', { index });
+      });
+    });
   }
-}
+};
