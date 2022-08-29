@@ -11,7 +11,7 @@ class Comment extends HTMLElement {
         ${contents}
       <style>
         .comment {
-            color: #fff;
+          
           width: 40%;
           height: auto;
           padding: 10px;
@@ -19,7 +19,7 @@ class Comment extends HTMLElement {
           background-color: #b8b6b6a4;
         }
         p {
-          color: blue;
+          color: #fff;
         }
       </style>
       </div>
@@ -27,4 +27,5 @@ class Comment extends HTMLElement {
     }
   }
   
-  customElements.define('comment-', Comment);
+customElements.define('comment-', Comment);
+export default Comment;

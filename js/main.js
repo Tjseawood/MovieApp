@@ -1,4 +1,54 @@
 import '/style.css';
+import './comment.js';
+import Store from './store/index.js';
+import Comment from './components/comments.js';
+
+import { openDB } from 'idb';
+
+window.addEventListener('DOMContentLoaded', async () => {
+  openDB('comment-store', 1, {
+    upgrade(db) {
+      db.createObjectStore('comments', { autoIncrement: true });
+      console.log('hi');
+    },
+  });
+
+  const db = await openDB('comment-store', 1);
+  const comments = ((await db.getAll('comments')) || {});
+  for (let i = 0; i < comments.length; i++){
+    Store.dispatch('addComment', comments);
+  }
+  db.close();
+})
+
+
+const formElement = document.querySelector('.comment-form');
+const nameElement = document.querySelector('#name');
+const emailElement = document.querySelector('#email');
+const commentElement = document.querySelector('#new-comment-field');
+
+formElement.addEventListener('submit', async (evt) => {
+  evt.preventDefault();
+
+  let name = nameElement.value.trim();
+  let email = emailElement.value.trim();
+  let contents = commentElement.value.trim();
+  if (name.length && email.length && contents.length) {
+    let comment = {name: name, email: email, contents: contents}
+    Store.dispatch('addComment', comment);
+    // const db = await openDB('comment-store', 1)
+    
+    // await db.put('comments', comment);
+    
+    // db.close();
+    
+    commentElement.value = '';
+    commentElement.focus();
+  }
+});
+
+const commentInstance = new Comment();
+commentInstance.render();
 
 const loadMovies = async (event) => {
   // override action method in standard html form

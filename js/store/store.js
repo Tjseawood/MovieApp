@@ -9,9 +9,6 @@ export default class Store {
     self.status = 'resting';
     self.events = new PubSub();
 
-    // We allow params to contain some data that we can start off with, so
-    // we're checking to see if that data exists here. If it doesn't we're
-    // fine since we already made these empty objects above.
     if (params.hasOwnProperty('actions')) {
       self.actions = params.actions;
     }
@@ -19,7 +16,6 @@ export default class Store {
       self.mutations = params.mutations;
     }
 
-    // TODO(elijahtruitt): What is a Proxy??
     self.state = new Proxy((params.state || {}), {
       set: function(state, key, value) {
         state[key] = value;
@@ -36,34 +32,35 @@ export default class Store {
     });
   }
 
-    dispatch(actionKey, payload) {
-        let self = this;
-    if (typeof self.actions[actionKey] !== 'function') {
-      console.error(`Action "${actionKey}" doesn't exist!`);
-      return false;
-    }
-    // Remember, we don't need an "else" here because if this conditional
-    // evaluates to true, we'll never reach these lines of code.
-    console.groupCollapsed(`ACTION: ${actionKey}`);
-    
-    self.status = 'action';
-    // Call the callback function
-    self.actions[actionKey](self, payload);
-
-    console.groupEnd();
-    return true;
+  dispatch(actionKey, payload) {
+    if(typeof this.actions[actionKey] !== 'function') {
+    console.error(`Action "${actionKey}" doesn't exist.`);
+    return false;
   }
 
-    commit(mutationKey, payload) {
-        let self = this;
+  console.groupCollapsed(`ACTION: ${actionKey}`);
+  
+  this.status = 'action';
+    
+  this.actions[actionKey](this, payload);
+
+  console.groupEnd();
+    
+  return true;
+}
+
+  commit(mutationKey, payload) {
+    let self = this;
         
-    if (typeof self.mutations[mutationKey] !== 'function') {
-      console.error(`Mutation "${mutationKey}" doesn't exist`);
+    if(typeof self.mutations[mutationKey] !== 'function') {
+      console.log(`Mutation "${mutationKey}" doesn't exist`);
       return false;
     }
 
     self.status = 'mutation';
+
     let newState = self.mutations[mutationKey](self.state, payload);
+
     self.state = Object.assign(self.state, newState);
 
     return true;
