@@ -20,7 +20,7 @@ export default class Comment extends Component {
       ${store.state.comments.map(comment => {
         return `
         <comment- name='${comment.name}' email='${comment.email}' contents='${comment.contents}'></comment->
-        <button>Delete Comment</button>
+        <button id="deleteButton">Delete Comment</button>
         `;
       }).join('')}
     </div>`;

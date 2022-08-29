@@ -214,4 +214,108 @@ a{
 
   padding: 20px;
 }
+.postButton{
+  position: relative;
+  margin-top: 1.2rem;
+  background-color: var(--dark-color);
+  border-radius: 4em;
+  font-size: 16px;
+  color: white;
+  padding: 10px;
+  cursor:pointer;
+  user-select:none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s; /* Safari */
 
+}
+
+.postButton:hover {
+  transition-duration: 0.1s;
+  color: var(--blue-color);
+  background-color: var(--light-color);
+}
+
+
+.postButton:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  box-shadow: 0 0 10px 40px white;
+}
+
+.postButton:active:after {
+  box-shadow: 0 0 0 0 white;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top:0;
+  opacity: 1;
+  transition: 0s;
+}
+
+.postButton:active {
+  top: 1px;
+}
+
+
+#deleteButton{
+  position: relative;
+  margin-top: 1.2rem;
+  background-color: var(--dark-color);
+  border-radius: 4em;
+  font-size: 16px;
+  color: white;
+  padding: 10px;
+  cursor:pointer;
+  user-select:none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s; /* Safari */
+}
+
+#deleteButton:hover {
+  transition-duration: 0.1s;
+  color: var(--blue-color);
+  background-color: var(--light-color);
+}
+
+
+#deleteButton:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  box-shadow: 0 0 10px 40px white;
+}
+
+#deleteButton:active:after {
+  box-shadow: 0 0 0 0 white;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top:0;
+  opacity: 1;
+  transition: 0s;
+}
+
+#deleteButton:active {
+  top: 1px;
+}
